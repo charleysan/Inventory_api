@@ -34,6 +34,10 @@ gem "thruster", require: false
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin Ajax possible
 # gem "rack-cors"
+gem 'bcrypt' # For hashing passwords securely
+gem 'jwt' # For generating JSON Web Tokens
+
+gem 'pundit' #To help setup roles
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
