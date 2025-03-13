@@ -6,10 +6,10 @@ class SessionsController < ApplicationController
     # Authenticate the user
     if user && user.authenticate(params[:password])
       # Generate a JWT token
-      token = JWT.encode({ owner_id: owner.id }, Rails.application.credentials.secret_key_base)
+      token = JWT.encode({ user_id: user_id }, Rails.application.credentials.secret_key_base)
 
       # Return the token in the response
-      render json: { jwt: token, owner: owner }, status: :created
+      render json: { jwt: token, user: user }, status: :created
     else
       # Invalid credentials
       render json: { error: 'Invalid email or password' }, status: :unauthorized
