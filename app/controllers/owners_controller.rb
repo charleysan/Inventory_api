@@ -22,6 +22,7 @@ class OwnersController < ApplicationController
     render json: owner
   end
 
+
   def destroy
     owner = Owner.find(params[:id])
     owner.destroy
