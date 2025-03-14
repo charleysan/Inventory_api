@@ -1,5 +1,5 @@
 class StoresController < ApplicationController
-
+  before_action :authorize_request, except: [:index]
 
   def index
     store = Store.all

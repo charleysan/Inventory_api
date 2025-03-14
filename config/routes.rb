@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
- resources :items
- resources :owners
- resources :stores
+  post '/login'=> 'sessions#create'
+  resources :items
+  resources :owners
+  resources :stores
 end
