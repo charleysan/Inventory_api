@@ -38,6 +38,7 @@ gem 'bcrypt' # For hashing passwords securely
 gem 'jwt' # For generating JSON Web Tokens
 
 gem 'pundit' #To help setup roles
+gem 'rack-cors'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

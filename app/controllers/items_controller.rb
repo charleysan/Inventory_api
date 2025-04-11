@@ -6,8 +6,13 @@ class ItemsController < ApplicationController
   end
 
   def create
-    item = Item.create!(name: params[:name], price: params[:price], owner_id: params[:owner_id], store_id: params[:store_id])
-  render json: item
+    @item = Item.new(name: params[:name], price: params[:price], owner_id: params[:owner_id], store_id: params[:store_id])
+    
+    if @item.save
+      render json: @item, status: :created
+    else
+      render json: @item.errors, status: :unprocessable_entity
+    end
   end
 
 
