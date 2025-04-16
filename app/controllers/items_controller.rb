@@ -18,6 +18,7 @@ class ItemsController < ApplicationController
 
   def update
     item = Item.find(params[:id])
+
     item.update!(
       name: params[:name] ||  item.name,
      price: params[:price] ||  item.price,
@@ -30,6 +31,6 @@ class ItemsController < ApplicationController
   def destroy
     item = Item.find(params[:id])
     item.destroy
-    render json: item
+    render json: :no_content
   end
 end
