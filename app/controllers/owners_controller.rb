@@ -7,7 +7,11 @@ class OwnersController < ApplicationController
 
   def create
     owner = Owner.create(name: params[:name], email: params[:email], password: params[:password], occupation: params[:occupation], level: params[:level], role: params[:role])
-  render json: owner
+    if owner.save
+      render json: { message: 'Owner created successfully' }, status: :created
+    else
+      render json: { errors: owner.errors.full_messages }, status: :unprocessable_entity
+    end
   end
 
 
